@@ -7,8 +7,11 @@
 
     if %Pro% == %Pro% md %Pro%
 
+copy Ide.bat %Pro%
+
 start %Pro%
     chdir %Pro%
+
 md Bin
 md Data
 md Scripts
@@ -34,14 +37,17 @@ echo Move Scripts SourceCode>> Compiler.bat
 echo Move Source SourceCode>> Compiler.bat
 echo Move Textures SourceCode>> Compiler.bat
 
-echo md Game>> Compiler.bat
+echo md App>> Compiler.bat
 
-echo copy TempCompiler Game>> Compiler.bat
+echo copy TempCompiler App>> Compiler.bat
 
-echo del TempCompiler>> Compiler.bat
+echo Move TempCompiler SourceCode>> Compiler.bat
+chdir SourceCode
+echo del /f /q TempCompiler>> Compiler.bat
 
 echo echo Game has ben compiled>> Compiler.bat
 echo pause>> Compiler.bat
+
     chdir Source
     echo > Main.bat Call O++.bat
     echo > O++.bat @echo off
@@ -80,7 +86,5 @@ echo set substr=:~d,n>> O++.bat
 echo set substred=:~d>> O++.bat
 echo set log=type>> O++.bat
 
-goto main
-
-
+%end%
 )

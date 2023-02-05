@@ -42,8 +42,13 @@ rename Settings.bat Settings.html
 
     if %Pro% == %Pro% md %Pro%
 
+copy Ide.bat %Pro%
+
 start %Pro%
     chdir %Pro%
+
+    start Ide.bat
+
 md Bin
 md Data
 md Scripts
@@ -75,10 +80,11 @@ echo copy TempCompiler App>> Compiler.bat
 
 echo Move TempCompiler SourceCode>> Compiler.bat
 chdir SourceCode
-echo del /f /q TempCompiler
+echo del /f /q TempCompiler>> Compiler.bat
 
 echo echo Game has ben compiled>> Compiler.bat
 echo pause>> Compiler.bat
+
     chdir Source
     echo > Main.bat Call O++.bat
     echo > O++.bat @echo off
@@ -118,8 +124,6 @@ echo set substred=:~d>> O++.bat
 echo set log=type>> O++.bat
 
 %end%
-
-goto main
 
     :Open
 
